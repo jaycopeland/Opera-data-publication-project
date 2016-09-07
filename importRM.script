@@ -7,9 +7,6 @@
 
 KEY=$1  # OMERO session key entered as first argument to script. 
 
-newgrp ImStor_perrimon
-module load utils/omero/5.2.2.3.13
-
 for plate in `ls -1 /files/ImStor/perrimon/plates/uncompressed_plates`
 
 do
