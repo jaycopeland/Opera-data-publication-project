@@ -1,0 +1,11 @@
+inputfolder="Y:/perrimon/Opera/plates/110B46/Meas_01(2010-05-07_04-52-24)";
+outputfolder="Y:/perrimon/Opera/uncompressed_plates/110B46/";
+
+glob(inputfolder & "/*.flex"|files)
+
+foreach(files, "file") {
+     readflex(file|sourcedata, sourcedataprop, tifftags)
+     sourcedata.compressiontype[:] = "";
+     pathsplit(file|basename)
+     writeflex(outputfolder & basename, sourcedata=sourcedata, sourcedataprop=sourcedataprop, tifftags=tifftags)
+}

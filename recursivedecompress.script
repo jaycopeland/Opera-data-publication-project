@@ -1,0 +1,13 @@
+
+inputfolder="Y:/perrimon/Opera/plates/RalphNeumuller/";
+outputfolder="Y:/perrimon/Opera/uncompressed_plates/";
+set(currentplatepath=inputfolder & currentplate)
+
+recursiveglob(currentplatepath & "/*.flex"|files)
+
+foreach(files, "file") {
+     readflex(file|sourcedata, sourcedataprop, tifftags)
+     sourcedata.compressiontype[:] = "";
+     pathsplit(file|basename)
+     writeflex(outputfolder & currentplate & "/" & basename, sourcedata=sourcedata, sourcedataprop=sourcedataprop, tifftags=tifftags)
+}
