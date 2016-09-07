@@ -13,6 +13,6 @@ for plate in `ls -1 /files/ImStor/perrimon/Opera/uncompressed_plates`
 
 do
 
-     omero import -s omero.hms.harvard.edu -k $KEY --sudo jc168 -u sm142 -g 203 --skip thumbnails -- -n $plate -- -r 252 $plate
+     omero import -s omero.hms.harvard.edu -k $KEY --skip thumbnails -- -n $plate -- -r 252 /files/ImStor/perrimon/Opera/uncompressed_plates/$plate
      
 done
