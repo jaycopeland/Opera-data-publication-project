@@ -1,9 +1,0 @@
-inputfolder="C:/data/110B46";
-outputfolder="C:/data/uncompressed/110B46";
-glob(inputfolder & "/*.flex"|files)
-foreach(files, "file") {
-     readflex(file|sourcedata, sourcedataprop, tifftags)
-     sourcedata.compressiontype[:] = "";
-     pathsplit(file|basename)
-     writeflex(outputfolder & basename, sourcedata=sourcedata, sourcedataprop=sourcedataprop, tifftags=tifftags)
-}
