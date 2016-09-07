@@ -4,6 +4,8 @@
 # The intent is to run this on Orchestra. For this to work it has to be run on a transfer node and the correct modules
 # have to be loaded. 
 
+newgrp ImStor_perrimon
+module load utils/omero/5.2.5.13
 
 KEY=$1  # OMERO session key entered as first argument to script. 
 
