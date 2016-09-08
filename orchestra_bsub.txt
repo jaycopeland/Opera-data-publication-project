@@ -22,6 +22,8 @@ first_omero_installation_at_hms_listing.txt  java-6-sun           lwf_jsdk2.6.ja
 jc168@clarinet001-054:~$  bsub -R "select[transfer]" -q priority -W 720:00 ./importRM.script abdee5b6-3311-4a86-9bde-23d4766edd5e
 Job <798011> is submitted to queue <priority>.
 
+# NB: I am using the priority queue because it cannot be suspended and has a 30 day limit. I specified the full 30 days (24*30=720) for the -W option. Be careful, the first time I ran this I entered -W 720, which specified a 720 minute runtime limit. 
+
 
 
 
