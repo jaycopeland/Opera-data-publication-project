@@ -1,2 +1,4 @@
 jc168@AcapellaWS /cygdrive/c/Users/jc168/Desktop
 $ for plate in `ls -1 /cygdrive/y/perrimon/Opera/plates/RalphNeumuller`; do Acapella.exe recursivedecompress.script -s currentplate=$plate ; done
+
+# NB: I had to add Acapella.exe to my bash profile for this to work. 
