@@ -3,6 +3,6 @@
 for plate in `ls -1 /cygdrive/y/perrimon/Opera/plates/RalphNeumuller`; 
   
 #  do Acapella.exe recursivedecompress.script -s currentplate=$plate;
-   echo $plate
+   echo $plate # this is for testing
 
 done
