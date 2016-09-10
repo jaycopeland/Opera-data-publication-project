@@ -8,11 +8,12 @@ newgrp ImStor_perrimon
 module load utils/omero/5.2.5.13
 
 KEY=$1  # OMERO session key entered as first argument to script. 
+SCREEN=$2 
 
 for plate in `ls -1 /files/ImStor/perrimon/Opera/uncompressed_plates`
 
 do
 
-     omero import -s omero.hms.harvard.edu -k $KEY --skip thumbnails -- -n $plate -- -r 252 /files/ImStor/perrimon/Opera/uncompressed_plates/$plate
+     omero import -s omero.hms.harvard.edu -k $KEY --skip thumbnails -- -n $plate -- -r $SCREEN /files/ImStor/perrimon/Opera/uncompressed_plates/$plate
      
 done
