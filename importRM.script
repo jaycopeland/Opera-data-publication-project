@@ -5,7 +5,7 @@
 # have to be loaded. 
 
 newgrp ImStor_perrimon
-module load utils/omero/5.2.5.13
+module load utils/omero
 
 KEY=$1  # OMERO session key entered as first argument to script. 
 SCREEN=$2 
