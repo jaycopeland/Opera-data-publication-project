@@ -3,17 +3,21 @@
 # This is a script for iterating over a list of plate directories and importing each one. 
 # The intent is to run this on Orchestra. For this to work it has to be run on a transfer node and the correct modules
 # have to be loaded. 
+# importRM.script sessionkey screenID platelist
 
-newgrp ImStor_perrimon
+# newgrp ImStor_perrimon
 module load utils/omero
 
 KEY=$1  # OMERO session key entered as first argument to script. 
-SCREEN=$2 
+SCREEN=$2 # Screen ID
+LIST=$3 # list of plates
 
-for plate in `ls -1 /files/ImStor/perrimon/Opera/uncompressed_plates`
+# for plate in `ls -1 /files/ImStor/perrimon/Opera/uncompressed_plates`
+
+for plate in `cat ~/Checkout/Opera-data-publication-project/$LIST`
 
 do
 
-     omero import -s omero.hms.harvard.edu -k $KEY --skip thumbnails -- -n $plate -- -r $SCREEN /files/ImStor/perrimon/Opera/uncompressed_plates/$plate
+     omero import -s omero.hms.harvard.edu ---file ~/importstandardout ---errs ~/importerrors -k $KEY --skip thumbnails -- -n $plate -- -r $SCREEN /files/ImStor/perrimon/Opera/uncompressed_plates/$plate
      
 done
