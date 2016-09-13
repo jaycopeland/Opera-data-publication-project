@@ -11,16 +11,12 @@ Previous session expired for sm142 on omero.hms.harvard.edu:4064
 Password for jc168:
 Created session abdee5b6-3311-4a86-9bde-23d4766edd5e (sm142@omero.hms.harvard.edu:4064). Idle timeout: 10 min. Current group: default
 
-Then run bsub using the key as the input. 
+Then run bsub using the import script, key, screenID, and plate list  as the inputs. 
 
-jc168@clarinet001-054:/files/ImStor/perrimon/Opera/uncompressed_plates$ cd
-jc168@clarinet001-054:~$ ls
-Checkout                                     hs_err_pid18170.log  jdk1.6.0_45          lwf_jsdk2.6.jar.orig  OMERO.clients-5.0.8.260-gs-ice34.linux  opera_accounting        tmp
-columbus_dr                                  importerror.txt.gz   ldap_truststore.jks  __MACOSX              OMERO.clients.linux-current             protocolfiles
-dev.sorger.med.harvard.edu                   importRM.script      lib                  Metadata              omero.matlab                            schoolbus.jpg
-first_omero_installation_at_hms_listing.txt  java-6-sun           lwf_jsdk2.6.jar      omero                 opera                                   sorger.med.harvard.edu
-jc168@clarinet001-054:~$  bsub -R "select[transfer]" -q priority -W 720:00 ./importRM.script abdee5b6-3311-4a86-9bde-23d4766edd5e
-Job <798011> is submitted to queue <priority>.
+bsub -R "select[transfer]" -q priority -W 720:00 ./importRM.script 7b07fd52-2df1-45a3-942a-c241b9d2a25b 301 listofplates.txt
+
+Note that the key above is different.  
+
 
 # NB: I am using the priority queue because it cannot be suspended and has a 30 day limit. I specified the full 30 days (24*30=720) for the -W option. Be careful, the first time I ran this I entered -W 720, which specified a 720 minute runtime limit. 
 
