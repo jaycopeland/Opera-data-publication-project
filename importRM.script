@@ -13,7 +13,7 @@
 #
 # newgrp ImStor_perrimon # This handles the 16 group NSF issue
 # module load utils/omero # You need this get a key.
-# omero login -C -s omero.hms.harvard.edu -u sm142 --sudu=jc168 # This creates a session.
+# omero session login -C -s omero.hms.harvard.edu -u sm142 --sudu=jc168 # This creates a session.
 # omero session key # This outputs the key so it can be copied into the bsub. 
 
 
@@ -22,8 +22,6 @@ module load utils/omero
 KEY=$1  # OMERO session key entered as first argument to script. 
 SCREEN=$2 # Screen ID
 LIST=$3 # list of plates
-
-# for plate in `ls -1 /files/ImStor/perrimon/Opera/uncompressed_plates`
 
 for plate in `cat ~/Checkout/Opera-data-publication-project/$LIST`
 
