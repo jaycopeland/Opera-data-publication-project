@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# This is a script for importing a single plate. 
+# The intent is to run this on Orchestra. For this to work it has to be run on a transfer node and the correct modules
+# have to be loaded.
+#
+# Usage: 
+# import_single_plate.script sessionkey screenID /full/path/to/plate/file platename
+# An example of unning this as an LSF job:
+# bsub -R "select[transfer]" -q priority -W 720:00 ./import_single_plate.script \
+# 7b07fd52-2df1-45a3-942a-c241b9d2a25b 301 pathtoplate
+#
+# The shell that runs the bsub shown above has to have access to the plate. In this case the following should 
+# be run first.
+#
+# newgrp ImStor_perrimon # This handles the 16 group NSF issue
+# module load utils/omero # You need this get a key.
+# omero session login -C -s omero.hms.harvard.edu -u sm142 --sudu=jc168 # This creates a session.
+# omero session key # This outputs the key so it can be copied into the bsub. 
+
+
+module load utils/omero
+
+KEY=$1  # OMERO session key entered as first argument to script. 
+SCREEN=$2 # Screen ID
+PLATEPATH=$3 # full path of plate file.
+PLATENAME=$4  # Plate name.
+
+omero import -s omero.hms.harvard.edu ---file ~/importstandardout ---errs ~/importerrors -k $KEY --skip thumbnails -- -n $PLATENAME -- -r $SCREEN $PLATEPATH
+     
+
