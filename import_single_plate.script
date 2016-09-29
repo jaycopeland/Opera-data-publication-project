@@ -15,7 +15,7 @@
 #
 # newgrp ImStor_perrimon # This handles the 16 group NSF issue
 # module load utils/omero # You need this get a key.
-# omero session login -C -s omero.hms.harvard.edu -u sm142 --sudu=jc168 # This creates a session.
+# omero login -C -s omero.hms.harvard.edu -u sm142 --sudu=jc168 # This creates a session.
 # omero session key # This outputs the key so it can be copied into the bsub. 
 
 
